@@ -61,8 +61,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+
 static const char *brightercmd[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *dimmercmd[] = { "brightnessctl", "set", "5%-", NULL };
+
+static const char *loudercmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *quietercmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+
+#include "selfrestart.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,6 +108,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightercmd } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dimmercmd } },
+	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = quietercmd } },
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = loudercmd } },
+	{ 0,                            XF86XK_AudioMute, spawn,   {.v = mutecmd } },
 };
 
 /* button definitions */
