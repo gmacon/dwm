@@ -70,8 +70,6 @@ static const char *loudercmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL 
 static const char *quietercmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 
-#include "selfrestart.c"
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
