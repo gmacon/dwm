@@ -70,6 +70,14 @@ static const char *loudercmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL 
 static const char *quietercmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 
+void
+restart_dwm(const Arg *arg)
+{
+	execlp("dwm", "dwm", (char *) NULL);
+	perror(" failed");
+	exit(1);
+}
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -105,6 +113,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_r,      restart_dwm,    {0} },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightercmd } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dimmercmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = quietercmd } },
