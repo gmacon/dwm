@@ -67,9 +67,9 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *brightercmd[] = { "brightnessctl", "set", "+5%", NULL };
 static const char *dimmercmd[] = { "brightnessctl", "set", "5%-", NULL };
 
-static const char *loudercmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *quietercmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *loudercmd[] = { "pamixer", "--increase", "5", NULL };
+static const char *quietercmd[] = { "pamixer", "--decrease", "5", NULL };
+static const char *mutecmd[] = { "pamixer", "--toggle-mute", NULL };
 
 void
 restart_dwm(const Arg *arg)
