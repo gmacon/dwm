@@ -71,6 +71,8 @@ static const char *loudercmd[] = { "pamixer", "--increase", "5", NULL };
 static const char *quietercmd[] = { "pamixer", "--decrease", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "--toggle-mute", NULL };
 
+static const char *lockcmd[] = { "xscreensaver-command", "-lock", NULL };
+
 void
 restart_dwm(const Arg *arg)
 {
@@ -115,6 +117,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_r,      restart_dwm,    {0} },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
 	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightercmd } },
 	{ 0,                            XF86XK_MonBrightnessDown, spawn, {.v = dimmercmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = quietercmd } },
