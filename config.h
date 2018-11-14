@@ -78,6 +78,8 @@ static const char *quietercmd[] = { "pamixer", "--decrease", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "--toggle-mute", NULL };
 
 static const char *lockcmd[] = { "xset", "s", "activate", NULL };
+static const char *screenshot[] = { "scrot", "-m", NULL };
+static const char *screenshot_window[] = { "scrot", "-u", NULL };
 
 void
 restart_dwm(const Arg *arg)
@@ -128,6 +130,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = quietercmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = loudercmd } },
 	{ 0,                            XF86XK_AudioMute, spawn,   {.v = mutecmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = screenshot_window } },
 };
 
 /* button definitions */
