@@ -38,7 +38,8 @@ static const Rule rules[] = {
 	{ "Thunderbird", "Calendar", NULL,    TAGMASK,      1,           -1 },
 	{ "Thunderbird", NULL,    NULL,       1 << 7,       0,           -1 },
 	{ "Hexchat",  NULL,       NULL,       1 << 6,       0,           -1 },
-	{ "HipChat",  NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "HipChat",  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "Slack",    NULL,       NULL,       1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
