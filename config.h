@@ -78,7 +78,7 @@ static const char *loudercmd[] = { "pamixer", "--increase", "5", NULL };
 static const char *quietercmd[] = { "pamixer", "--decrease", "5", NULL };
 static const char *mutecmd[] = { "pamixer", "--toggle-mute", NULL };
 
-static const char *lockcmd[] = { "xset", "s", "activate", NULL };
+static const char *lockcmd[] = { "xscreensaver-command", "-lock", NULL };
 static const char *screenshot[] = { "scrot", "-m", NULL };
 static const char *screenshot_window[] = { "scrot", "-u", NULL };
 
